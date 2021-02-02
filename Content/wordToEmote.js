@@ -17,8 +17,6 @@ function onMessage(obj){
   var message = $('#log>div:last-child')[0].getElementsByClassName("message")[0].innerHTML
 
   for (var key in data) {
-    console.log(key)
-
     imgSrc = data[key];
     img = imageTemplate.replace("SRC", imgSrc);
     message = message.replace(key, img);
