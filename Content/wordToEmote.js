@@ -13,15 +13,17 @@ function onMessage(obj){
         opacity: 1
     }, 300);
 
-  // Replace message with custom emotes if applicable
-  var message = $('#log>div:last-child')[0].getElementsByClassName("message")[0].innerHTML
+    var messageElement = $('#log>div:last-child')[0].getElementsByClassName("message")[0];
 
-  for (var key in data) {
-    imgSrc = data[key];
-    img = imageTemplate.replace("SRC", imgSrc);
-    message = message.replace(key, img);
-  }
+    // Replace message with custom emotes if applicable
+    var messageText = messageElement.innerHTML
 
-  $('#log>div:last-child')[0].getElementsByClassName("message")[0].innerHTML = message
+    for (var key in data) {
+      imgSrc = data[key];
+      img = imageTemplate.replace("SRC", imgSrc);
+      messageText = messageText.replace(key, img);
+    }
+
+    messageElement.innerHTML = messageText
   }
 }
